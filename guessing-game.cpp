@@ -5,10 +5,11 @@
 
 int main()
 {
+	//declaring round limit
 	const int roundLimit=5;
 
 	std::cout<<"Guess the random number"<<std::endl;
-
+	//random seed, target set
 	srand(time(0));
 	int targetNo = rand()%100 +1;
 
@@ -17,15 +18,16 @@ int main()
 		
 		int userGuess=0;
 		std::cin>>userGuess;
+		//checking for good input
 		while (!std::cin.good())
 		{
-			std::cout<<"Not an Int"<<std::endl;
+			std::cout<<"Not an Int, please enter again"<<std::endl;
 			std::cin.clear();
 			std::cin.ignore(INT8_MAX, '\n');
 			std::cin>>userGuess;
 
 		}
-
+		//appropriate output messages
 		if(userGuess>targetNo)
 		{
 			std::cout<<"Guess Lower"<<std::endl;
@@ -33,7 +35,7 @@ int main()
 		{
 			std::cout<<"Guess Higher"<<std::endl;
 		}else
-		{
+		{	//win-exit application
 			std::cout<<"You Win"<<std::endl;
 			return 0;
 		}
