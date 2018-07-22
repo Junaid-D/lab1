@@ -14,6 +14,15 @@ using namespace std;
 
 class Screen {
 public:
+	enum class Direction : unsigned char
+	{
+	    HOME,
+		FORWARD,
+		BACK,
+		UP,
+		DOWN,
+		END
+	};
 	// Screen's constructor
 	Screen( string::size_type height = 40, string::size_type width = 8, char bkground = '#');
 
@@ -40,6 +49,23 @@ public:
 	void down();
 	// move the cursor to the specified row and column
 	void move(string::size_type row, string::size_type col);
+
+	void move(Direction dir){
+
+		if(dir==Direction::HOME)
+			home();
+		else if(dir==Direction::FORWARD)
+			forward();
+		else if(dir==Direction::BACK)
+			back();
+		else if(dir==Direction::UP)
+			up();
+		else if(dir==Direction::DOWN)
+			down();
+		else if(dir==Direction::END)
+			end();
+	}
+
 
 	// get the character at the cursor's current position
 	char get() const { return _screen[cursor_]; }
