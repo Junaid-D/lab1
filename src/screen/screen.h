@@ -97,7 +97,42 @@ public:
 		to an unsigned int etc. is to ensure cross platform compatability
 		--depending on the OS and architecture the size type of string will vary
 	*/
+	void drawSquare(string::size_type row, string::size_type col,string::size_type length)
+	{
+		if (!checkRange(row+length-1,col+length-1))
+		{
+			cerr<<"Screen not big enough for this square at the given position!"<<endl;
 
+		}else
+		{
+			move(row,col);
+			//draw horizontal
+			for (int j=0;j<2;j++)
+			{
+				for (int i=0;i<length-1;i++)
+				{
+					set('X');
+					forward();
+				}
+				set('X');
+				move(row+length-1,col);
+			}
+			move(row,col);
+			for (int j=0;j<2;j++)
+			{
+				for (int i=0;i<length-1;i++)
+				{
+					set('X');
+					down();
+				}
+				set('X');
+				move(row,col+length-1);
+			}
+
+
+		}
+
+	}
 	// display the screen
 	void display() const;
 	// check whether the specified co-ordinates lie within the screen
