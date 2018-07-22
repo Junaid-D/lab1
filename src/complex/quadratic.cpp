@@ -6,29 +6,39 @@
 
 int main()
 {
-	using cFloat=std::complex<float>;//alias for complex of <float>
 
-	int a,b,c=0;
-	
-	std::cin>>a;
-	std::cin>>b;
-	std::cin>>c;
-
-	cFloat aComp=cFloat{a,0};
-	cFloat bComp=cFloat{b,0};
-	cFloat cComp=cFloat{c,0};
-
-
-
-	cFloat root = std::sqrt(std::pow(b,2)-a*c*4.0f);
-	cFloat ans=(-bComp)/(2.0f*aComp);
-
-	std::cout<<ans+root<<std::endl;
-	if(ans.imag()==0.)
+	char response='0';
+	do
 	{
-		std::cout<<ans-root<<std::endl;
+		using cFloat=std::complex<float>;//alias for complex of <float>
 
-	}
+		float temp=0;
+
+		std::cout<<"Enter a"<<std::endl;
+		std::cin>>temp;
+		cFloat aComp=cFloat{temp,0};
+
+		std::cout<<"Enter b"<<std::endl;
+		std::cin>>temp;
+		cFloat bComp=cFloat{temp,0};
+
+		std::cout<<"Enter c"<<std::endl;
+		std::cin>>temp;
+		cFloat cComp=cFloat{temp,0};
+
+
+
+		cFloat root = std::sqrt(std::pow(bComp,2)-aComp*cComp*4.f)/(2.f*aComp);
+
+		cFloat ans=(-bComp)/(2.f*aComp);
+		std::cout<<"The roots are :"<<std::endl;
+		std::cout<<ans+root<<std::endl;
+		std::cout<<ans-root<<std::endl;
+		std::cout<<"Would you like to do another?"<<std::endl;
+		
+		std::cin>>response;
+
+	}while(response!='q');
 
 	return 0;
 }
