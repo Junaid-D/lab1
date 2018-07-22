@@ -7,7 +7,7 @@ int main()
 {
 	Screen screen1(6,6,' ');
 
-	for (int i=0;i<5;i++)
+	for (int i=0;i<6;i++)
 	{
 		screen1.set('*');
 		screen1.forward();
