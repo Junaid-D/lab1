@@ -100,6 +100,7 @@ public:
 
 
 	/*
+	ex 4.5
 		the draw square functionality can be implemented fairly
 		easily using the existing interface
 
@@ -152,6 +153,15 @@ public:
 		}
 
 	}
+
+	/*
+	ex 4.6
+
+
+	
+	*/
+
+
 	// display the screen
 	void display() const;
 	// check whether the specified co-ordinates lie within the screen
