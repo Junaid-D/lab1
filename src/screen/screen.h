@@ -50,20 +50,21 @@ public:
 	// move the cursor to the specified row and column
 	void move(string::size_type row, string::size_type col);
 
+	//ex 4.3
 	void move(Direction dir){
 
-		if(dir==Direction::HOME)
-			home();
-		else if(dir==Direction::FORWARD)
-			forward();
-		else if(dir==Direction::BACK)
-			back();
-		else if(dir==Direction::UP)
-			up();
-		else if(dir==Direction::DOWN)
-			down();
-		else if(dir==Direction::END)
-			end();
+		switch (dir)
+		{
+			case Direction::HOME : home(); break;
+			case Direction::FORWARD : forward(); break;
+			case Direction::BACK : back(); break;
+			case Direction::UP : up(); break;
+			case Direction::DOWN : down(); break;
+			case Direction::END : end(); break;
+			default: cerr<<"Invalid dir specified";break;
+		}
+
+		return;
 	}
 
 
