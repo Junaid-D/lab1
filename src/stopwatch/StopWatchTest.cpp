@@ -5,7 +5,7 @@
 
 int main()
 {
-	StopWatch watch1;
+	auto watch1= StopWatch();
 
 	watch1.startTiming();
 
@@ -16,6 +16,7 @@ int main()
 
 
 	}
+	watch1.printTime();
 	watch1.pauseTiming();
 	std::cout<<watch1.getTime()<<std::endl;
 
